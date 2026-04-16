@@ -88,16 +88,32 @@ export default function Home() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.6 }}
-            className="flex flex-wrap justify-center gap-6"
+            className="flex flex-col items-center justify-center gap-8"
           >
-            <Button asChild size="lg" className="rounded-full px-10 h-16 text-lg font-bold shadow-2xl shadow-primary/20 transition-all hover:scale-105 active:scale-95">
-              <Link to="/contact">
-                Work With Me <ArrowRight className="ml-2 w-6 h-6" />
+            <div className="flex flex-wrap justify-center gap-6">
+              <Button asChild size="lg" className="rounded-full px-10 h-16 text-lg font-bold shadow-2xl shadow-primary/20 transition-all hover:scale-105 active:scale-95">
+                <Link to="/contact">
+                  Work With Me <ArrowRight className="ml-2 w-6 h-6" />
+                </Link>
+              </Button>
+              <Button variant="outline" asChild size="lg" className="rounded-full px-10 h-16 text-lg font-bold glass transition-all hover:bg-primary/10">
+                <Link to="/services">Explore Services</Link>
+              </Button>
+            </div>
+            
+            <motion.div 
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.9, duration: 0.6 }}
+            >
+              <Link 
+                to="/projects" 
+                className="group flex items-center gap-2 text-sm md:text-base font-medium text-muted-foreground hover:text-primary transition-colors hover:underline underline-offset-4 decoration-primary/50"
+              >
+                Or explore my latest projects
+                <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
               </Link>
-            </Button>
-            <Button variant="outline" asChild size="lg" className="rounded-full px-10 h-16 text-lg font-bold glass transition-all hover:bg-primary/10">
-              <Link to="/services">Explore Services</Link>
-            </Button>
+            </motion.div>
           </motion.div>
         </motion.div>
 

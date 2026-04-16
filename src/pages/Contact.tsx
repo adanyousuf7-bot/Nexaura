@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from 'motion/react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
-import { Mail, MapPin, Phone, Send, CheckCircle2, Github, Linkedin, Twitter, MessageSquare, Clock, ShieldCheck } from 'lucide-react';
+import { Mail, MapPin, Phone, Send, CheckCircle2, Github, Linkedin, MessageSquare, Clock, ShieldCheck } from 'lucide-react';
 import { SEO } from '../components/SEO';
 
 export default function Contact() {
@@ -252,8 +252,7 @@ export default function Contact() {
         <div className="flex justify-center gap-6">
           {[
             { icon: Github, href: "https://github.com/adanyousuf7-bot", label: "GitHub" },
-            { icon: Linkedin, href: "https://www.linkedin.com/in/adan-yousuf-69319a3b4/", label: "LinkedIn" },
-            { icon: Twitter, href: "#", label: "Twitter" }
+            { icon: Linkedin, href: "https://www.linkedin.com/in/adan-yousuf-69319a3b4/", label: "LinkedIn" }
           ].map((social, i) => (
             <motion.a
               key={i}

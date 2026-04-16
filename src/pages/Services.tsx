@@ -42,6 +42,29 @@ const services = [
   }
 ];
 
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.15
+    }
+  }
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 30 },
+  visible: { 
+    opacity: 1, 
+    y: 0,
+    transition: {
+      type: "spring",
+      stiffness: 100,
+      damping: 15
+    }
+  }
+};
+
 export default function Services() {
   return (
     <div className="max-w-7xl mx-auto px-6 py-12 md:py-24">
@@ -69,14 +92,17 @@ export default function Services() {
         </motion.p>
       </div>
 
-      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <motion.div 
+        className="grid md:grid-cols-2 lg:grid-cols-3 gap-8"
+        variants={containerVariants}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, margin: "-50px" }}
+      >
         {services.map((service, i) => (
           <motion.div
             key={i}
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: i * 0.1 }}
+            variants={itemVariants}
             whileHover={{ y: -10 }}
           >
             <Card className="h-full border-border bg-card/30 backdrop-blur-md hover:border-primary/50 transition-all duration-500 group glass">
@@ -94,7 +120,7 @@ export default function Services() {
             </Card>
           </motion.div>
         ))}
-      </div>
+      </motion.div>
 
       {/* FAQ Section */}
       <section className="mt-32 space-y-16">

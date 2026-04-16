@@ -33,29 +33,61 @@ export default function Navbar() {
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-background/20 backdrop-blur-2xl border-b border-white/5">
       <div className="max-w-7xl mx-auto px-8 h-24 flex items-center justify-between">
-        <Link to="/" className="group">
+        <Link to="/" className="group block">
           <motion.div
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            initial={{ opacity: 0, x: -20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.5, ease: "easeOut" }}
-            className="flex items-center gap-2"
+            initial="initial"
+            animate="animate"
+            whileHover="hover"
+            variants={{
+              initial: {},
+              animate: { transition: { staggerChildren: 0.1 } },
+              hover: { transition: { staggerChildren: 0.05 } }
+            }}
+            className="flex items-center gap-1 overflow-visible"
           >
-            <span className="font-logo text-3xl font-bold tracking-tighter transition-colors group-hover:text-primary">
-              Nexaura
-            </span>
+            <div className="flex">
+              {"Nexaura".split("").map((letter, i) => (
+                <motion.span
+                  key={i}
+                  variants={{
+                    initial: { opacity: 0, y: -40, rotateX: -90 },
+                    animate: { 
+                      opacity: 1, 
+                      y: 0, 
+                      rotateX: 0,
+                      transition: { type: "spring", bounce: 0.6 }
+                    },
+                    hover: {
+                      y: -12,
+                      rotateZ: [0, 15, -15, 0],
+                      scale: 1.3,
+                      transition: { duration: 0.4 }
+                    }
+                  }}
+                  className="font-logo text-3xl font-bold tracking-tighter inline-block text-foreground group-hover:text-primary transition-colors duration-300"
+                >
+                  {letter}
+                </motion.span>
+              ))}
+            </div>
+            
             <motion.div
-              animate={{ 
-                rotate: [0, 10, 0, -10, 0],
-                scale: [1, 1.2, 1, 1.2, 1]
+              variants={{
+                initial: { scale: 0, rotateZ: 0 },
+                animate: { 
+                  scale: [1, 1.8, 1],
+                  rotateZ: [0, 180, 360],
+                  borderRadius: ["50%", "20%", "50%"],
+                  transition: { duration: 3, repeat: Infinity, ease: "easeInOut" }
+                },
+                hover: {
+                  scale: 2.5,
+                  rotateZ: 720,
+                  borderRadius: "10%",
+                  transition: { duration: 0.6, ease: "easeOut" }
+                }
               }}
-              transition={{ 
-                duration: 4, 
-                repeat: Infinity,
-                ease: "easeInOut"
-              }}
-              className="w-2 h-2 rounded-full bg-primary"
+              className="w-3 h-3 bg-primary ml-2 shadow-[0_0_15px_rgba(var(--primary),0.8)]"
             />
           </motion.div>
         </Link>
@@ -81,16 +113,18 @@ export default function Navbar() {
             </Link>
           ))}
           
-          <Link to="/consultation">
-            <Button size="sm" className="rounded-full px-6 font-bold shadow-lg shadow-primary/20 hover:scale-105 transition-transform">
+          <Link to="/consultation" className="relative block group">
+            <div className="absolute -inset-0.5 rounded-full bg-primary/50 blur opacity-70 animate-pulse group-hover:opacity-100 transition-opacity" />
+            <Button size="sm" className="relative rounded-full px-6 font-bold shadow-lg hover:scale-105 transition-transform">
               Book Consultation
             </Button>
           </Link>
         </div>
 
         <div className="md:hidden flex items-center gap-4">
-          <Link to="/consultation">
-            <Button size="xs" className="rounded-full px-4 font-bold">
+          <Link to="/consultation" className="relative block group">
+            <div className="absolute -inset-0.5 rounded-full bg-primary/50 blur opacity-70 animate-pulse group-hover:opacity-100 transition-opacity" />
+            <Button size="xs" className="relative rounded-full px-4 font-bold">
               Book
             </Button>
           </Link>
@@ -141,8 +175,9 @@ export default function Navbar() {
                 transition={{ delay: navLinks.length * 0.1 }}
                 className="pt-4"
               >
-                <Link to="/consultation">
-                  <Button size="lg" className="rounded-full px-8 font-bold text-lg">
+                <Link to="/consultation" className="relative block group">
+                  <div className="absolute -inset-1 rounded-full bg-primary/50 blur-md opacity-70 animate-pulse group-hover:opacity-100 transition-opacity" />
+                  <Button size="lg" className="relative rounded-full px-8 font-bold text-lg hover:scale-105 transition-transform">
                     Book Consultation
                   </Button>
                 </Link>
