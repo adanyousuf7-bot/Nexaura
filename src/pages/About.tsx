@@ -18,11 +18,11 @@ export default function About() {
           transition={{ duration: 0.8 }}
           className="relative"
         >
-          <div className="w-72 h-72 md:w-96 md:h-96 rounded-3xl overflow-hidden border-4 border-primary/20 shadow-2xl rotate-3 hover:rotate-0 transition-transform duration-500">
+          <div className="w-72 h-72 md:w-[400px] md:h-[500px] rounded-3xl overflow-hidden border-4 border-primary/20 shadow-2xl md:rotate-3 hover:rotate-0 transition-transform duration-500">
             <img 
-              src="https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&q=80&w=800" 
+              src="https://i.pinimg.com/1200x/14/f3/6f/14f36f36bcf153f969711486e5e13147.jpg" 
               alt="Adan Yousuf" 
-              className="w-full h-full object-cover"
+              className="w-full h-full object-cover object-top"
               referrerPolicy="no-referrer"
             />
           </div>
@@ -153,11 +153,11 @@ export default function About() {
           viewport={{ once: true }}
           className="relative"
         >
-          <div className="aspect-video rounded-3xl overflow-hidden border border-border shadow-2xl glass">
+          <div className="aspect-[4/3] rounded-3xl overflow-hidden border border-border shadow-2xl glass group">
             <img 
-              src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&q=80&w=1200" 
+              src="https://i.pinimg.com/1200x/14/f3/6f/14f36f36bcf153f969711486e5e13147.jpg" 
               alt="Workspace" 
-              className="w-full h-full object-cover opacity-80"
+              className="w-full h-full object-cover object-center opacity-80 group-hover:opacity-100 transition-all duration-700 group-hover:scale-105"
               referrerPolicy="no-referrer"
             />
           </div>
